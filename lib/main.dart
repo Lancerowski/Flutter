@@ -31,7 +31,7 @@ class _ExpenseHomePageState extends State<ExpenseHomePage> {
   final _titleController = TextEditingController();
   final _amountController = TextEditingController();
   String _selectedCategory = 'Food';
-  int? _editingIndex;  // Track the index of the item being edited
+  int? _editingIndex;  
 
   final List<String> _categories = [
     'Food',
@@ -66,7 +66,6 @@ class _ExpenseHomePageState extends State<ExpenseHomePage> {
         });
       });
     } else {
-      // Update the expense at the given index
       setState(() {
         _expenses[_editingIndex!] = {
           'title': title,
@@ -74,10 +73,9 @@ class _ExpenseHomePageState extends State<ExpenseHomePage> {
           'category': _selectedCategory,
         };
       });
-      _editingIndex = null;  // Reset the editing state
+      _editingIndex = null;  
     }
 
-    // Clear the input fields after adding or updating
     _titleController.clear();
     _amountController.clear();
   }
@@ -99,7 +97,6 @@ class _ExpenseHomePageState extends State<ExpenseHomePage> {
     });
   }
 
-  // Method to generate PieChart data
   List<PieChartSectionData> _getChartData() {
     final Map<String, double> categorySums = {};
 
@@ -218,7 +215,6 @@ class _ExpenseHomePageState extends State<ExpenseHomePage> {
     );
   }
 
-  // Method to create a legend for the categories
   Widget _buildLegend() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
